@@ -1,0 +1,37 @@
+version: 0.1
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: linux
+
+autosplit: true
+
+retryOnFailure: true
+maxRetries: 1
+
+concurrency: 1
+
+env:
+  PROJECT_TOKEN: "509662#7b2467c7-1b1e-4e75-804c-4fc31988df64#selenium-java-hyp-sdk"
+
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
+
+pre:
+  - npm i @lambdatest/smartui-cli
+  - mvn clean compile
+  - npx smartui config:create smartui-web.json
+
+post:
+  - cat hyp-smartui-sdk-selenium-java
+
+testDiscovery:
+  type: raw
+  mode: static
+  command: echo "selenium java smart ui sdk hyperexecute"
+
+testRunnerCommand: npx smartui exec -- mvn test -D suite=sdk-cloud.xml
+
+jobLabel: ["smart-ui-sdk", "hyperexecute", "selenium", "java"]
