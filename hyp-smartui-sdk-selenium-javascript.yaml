@@ -3,7 +3,7 @@ globalTimeout: 90
 testSuiteTimeout: 90
 testSuiteStep: 90
 
-runson: linux
+runson: win
 
 autosplit: true
 
@@ -13,25 +13,25 @@ maxRetries: 1
 concurrency: 1
 
 env:
-  PROJECT_TOKEN: "509662#7b2467c7-1b1e-4e75-804c-4fc31988df64#selenium-java-hyp-sdk"
+  CACHE_DIR: m2_cache_dir
+  PROJECT_TOKEN: "YOUR_PROJECT_TOKEN" #Enter your project token here
 
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
 
 pre:
-  - npm i @lambdatest/smartui-cli
-  - mvn clean compile
+  - npm i @lambdatest/smartui-cli @lambdatest/selenium-driver selenium-webdriver
   - npx smartui config:create smartui-web.json
 
 post:
-  - cat hyp-smartui-sdk-selenium-java
+  - cat hyp-smartui-sdk-selenium-javascript.yaml
 
 testDiscovery:
   type: raw
   mode: static
-  command: echo "selenium java smart ui sdk hyperexecute"
+  command: ls hooks/examples/*.js
 
-testRunnerCommand: npx smartui exec -- mvn test -D suite=sdk-cloud.xml
+testRunnerCommand: npx smartui exec node sdkCloud.js --config smartui-web.json
 
-jobLabel: ["smart-ui-sdk", "hyperexecute", "selenium", "java"]
+jobLabel: ["smart-ui-sdk", "hyperexecute", "selenium", "javascript"]

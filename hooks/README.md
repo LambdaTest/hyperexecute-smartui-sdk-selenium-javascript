@@ -2,7 +2,7 @@
 
 HyperExecute is a smart test orchestration platform to run end-to-end XCUI tests at the fastest speed possible. HyperExecute lets you achieve an accelerated time to market by providing a test infrastructure that offers optimal speed, test orchestration, and detailed execution logs.
 
-Integrating seamlessly into your existing Selenium Javascript testing suite, SmartUI SDK revolutionizes the way you approach visual regression testing. Our robust solution empowers you to effortlessly capture, compare, and analyze screenshots across a multitude of browsers and resolutions, ensuring comprehensive coverage and accuracy in your visual testing endeavors.
+Integrating seamlessly into your existing Cypress testing suite, SmartUI SDK revolutionizes the way you approach visual regression testing. Our robust solution empowers you to effortlessly capture, compare, and analyze screenshots across a multitude of browsers and resolutions, ensuring comprehensive coverage and accuracy in your visual testing endeavors.
 
 The overall experience helps teams test code and fix issues at a much faster pace. HyperExecute is configured using a YAML file. Instead of moving the Hub close to you, HyperExecute brings the test scripts close to the Hub!
 
@@ -12,7 +12,9 @@ The overall experience helps teams test code and fix issues at a much faster pac
 
 To know more about how HyperExecute does intelligent Test Orchestration, do check out [HyperExecute Getting Started Guide](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/)
 
-# How to run Selenium Javascript tests through SmartUI SDK on HyperExecute
+# How to run Cypress tests through SmartUI SDK on HyperExecute
+
+> SmartUI SDK only supports Cypress versions >= 10.0.0
 
 * [Prerequisites](#prerequisites)
    - [Clone the Sample Repository](#clone-the-sample-repository)
@@ -26,16 +28,16 @@ To know more about how HyperExecute does intelligent Test Orchestration, do chec
 ## Prerequisites
 
 - Login to [HyperExecute](https://hyperexecute.lambdatest.com/) with your credentials.
-- Basic understanding of Command Line Interface and Selenium Javascript is required.
+- Basic understanding of Command Line Interface and Cypress is required.
 - Before using HyperExecute, you have to download HyperExecute CLI corresponding to the host OS. Along with it, you also need to export the environment variables *LT_USERNAME* and *LT_ACCESS_KEY* that are available in the [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile) page.
 
 ### Clone the Sample Repository
 
-Download or Clone the code sample for the Selenium Javascript from the LambdaTest GitHub repository to run the tests on the HyperExecute.
+Download or Clone the code sample for the Cypress from the LambdaTest GitHub repository to run the tests on the HyperExecute.
 
 ```bash
-git clone https://github.com/LambdaTest/hyperexecute-smartui-sdk-selenium-javascript
-cd hyperexecute-smartui-sdk-selenium-javascript
+git clone https://github.com/LambdaTest/hyperexecute-smartui-sdk-cypress
+cd hyperexecute-smartui-sdk-cypress
 ```
 
 ### Download HyperExecute CLI
@@ -123,7 +125,7 @@ post:
 testDiscovery:
   type: raw
   mode: static
-  command: ls hooks/examples/*.js
+  command: ls sdkCloud.js
 
 testRunnerCommand: npx smartui exec node sdkCloud.js --config smartui-web.json
 
