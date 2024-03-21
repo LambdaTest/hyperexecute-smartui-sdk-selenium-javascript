@@ -25,13 +25,13 @@ pre:
   - npx smartui config:create smartui-web.json
 
 post:
-  - cat hyp-smartui-sdk-selenium-javascript.yaml
+  - cat hyp-smartui-sdk.yaml
 
 testDiscovery:
   type: raw
   mode: static
-  command: ls hooks/examples/*.js
+  command: ls sdk/sdkCloud.js
 
-testRunnerCommand: npx smartui exec node sdkCloud.js --config smartui-web.json
+testRunnerCommand: npx smartui exec node sdk/sdkCloud.js --config smartui-web.json
 
 jobLabel: ["smart-ui-sdk", "hyperexecute", "selenium", "javascript"]

@@ -13,10 +13,10 @@ let capabilities = {
   "LT:Options": {
     username: USERNAME,
     accessKey: KEY,
-    "project": "hyp-js-smartui-sdk",
+    project: "PROJECT_NAME",
     w3c: true,
-    "name": "hyp-smartui-js-sdk-testing", // name of the test
-    "build": "hyp-smartui-sdk-build", // name of the build
+    name: "TEST_NAME", // name of the test
+    build: "BUILD_NAME", // name of the build
     visual: true,
   },
 };
@@ -34,6 +34,10 @@ let capabilities = {
   try {
     await driver.get("https://www.lambdatest.com/visual-regression-testing");
     await smartuiSnapshot(driver, "LT-SmartUI");
+    await driver.executeScript("lambda-status=passed");
+  } catch(err){
+    console.log(err)
+    driver.executeScript("lambda-status=failed");
   } finally {
     await driver.quit();
   }
