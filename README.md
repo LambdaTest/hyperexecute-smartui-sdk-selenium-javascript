@@ -19,6 +19,7 @@ To know more about how HyperExecute does intelligent Test Orchestration, do chec
    - [Download HyperExecute CLI](#download-hyperexecute-cli)
    - [Configure Environment Variables](#configure-environment-variables)
 * [Create a SmartUI Project](#create-a-smartui-project)
+* [Update your Project Configurations](#update-your-project-configurations)
 * [Configure YAML File](#configure-yaml-in-your-test-suite)
 * [Execute your Test Suite](#execute-your-test-suite)
 * [Navigation in Automation Dashboard](#navigation-in-automation-dashboard)
@@ -82,6 +83,20 @@ The first step is to create a project with the application in which we will comb
 3. Select the platform as **CLI** for executing your `SDK` tests.
 4. Add name of the project, approvers for the changes found, tags for any filter or easy navigation.
 5. Click on the **Submit**.
+
+## Update Your Project Configurations
+
+In the `sdkCloud.js` file, update the following capabilities
+
+- `project`: Enter your Project Name
+- `name`: You need to provide the name of your test
+- `build`: Mention your desired build name
+
+```bash
+  project: "PROJECT_NAME", //name of the project
+  name: "TEST_NAME", // name of the test
+  build: "BUILD_NAME", // name of the build
+```
 
 ## Configure YAML in your Test Suite
 
