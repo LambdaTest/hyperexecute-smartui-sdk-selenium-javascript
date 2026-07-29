@@ -21,7 +21,7 @@ cacheDirectories:
   - node_modules
 
 pre:
-  - npm i @lambdatest/smartui-cli @lambdatest/selenium-driver selenium-webdriver
+  - npm i @lambdatest/smartui-cli@latest @lambdatest/selenium-driver selenium-webdriver
   - npx smartui config:create smartui-web.json
 
 post:
